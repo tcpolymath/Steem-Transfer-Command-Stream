@@ -15,7 +15,7 @@ def transfer_command_stream(account):
         stream=blockchain.stream(opNames=['transfer'], raw_ops=False)
         for transfer in stream:
                 if transfer['to'] == account:
-                        amount = float(transfer['amount']['amount'])/1000
+                        amount = float(transfer['amount']['amount'])/(10**int(transfer['amount']['precision']))
                         if transfer['amount']['nai'] == "@@000000021":
                                 currency = "STEEM"
                         elif transfer['amount']['nai'] == "@@000000013":
