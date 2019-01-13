@@ -11,7 +11,7 @@ set_shared_steem_instance(steem)
 
 
 def transfer_command_stream(account):
-        blockchain=Blockchain(mode="head")
+        blockchain=Blockchain(mode="irreversible")
         stream=blockchain.stream(opNames=['transfer'], raw_ops=False)
         for transfer in stream:
                 if transfer['to'] == account:
